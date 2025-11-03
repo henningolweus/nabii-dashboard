@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zambia Impact Investment Ecosystem | NABII</title>
+    <title>Zambia Impact Investment Dashboard | NABII</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,22 +18,11 @@
             --white: #FFFFFF;
             --gray: #4B535D;
             --beige: #ECE6E1;
-
-            /* Extended palette for charts */
-            --green-100: #E8F5E9;
-            --green-300: #81C784;
-            --green-500: #1A6B18;
-            --green-700: #2E7D32;
-            --green-900: #1B5E20;
-
-            /* Spacing */
             --spacing-xs: 8px;
             --spacing-sm: 16px;
             --spacing-md: 24px;
             --spacing-lg: 40px;
             --spacing-xl: 60px;
-
-            /* Typography */
             --font-primary: 'Roboto', sans-serif;
             --font-secondary: 'Public Sans', sans-serif;
             --font-size-body: 17px;
@@ -219,132 +208,6 @@
             box-shadow: 0 4px 12px rgba(26, 107, 24, 0.25);
         }
 
-        /* Deals Grid */
-        .deals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-lg);
-        }
-
-        .deal-card {
-            background: var(--white);
-            border: 2px solid var(--beige);
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .deal-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(26, 107, 24, 0.15);
-            border-color: var(--green-primary);
-        }
-
-        .deal-rank {
-            display: inline-block;
-            background: rgba(26, 107, 24, 0.1);
-            color: var(--green-primary);
-            font-size: 13px;
-            font-weight: 700;
-            padding: 6px var(--spacing-sm);
-            border-radius: 11111px;
-            margin-bottom: var(--spacing-sm);
-            letter-spacing: 0.5px;
-        }
-
-        .deal-title {
-            font-size: 25px;
-            font-weight: 500;
-            margin-bottom: var(--spacing-sm);
-            color: var(--navy-dark);
-            line-height: 1.3;
-        }
-
-        .deal-amount {
-            font-size: 35px;
-            font-weight: 500;
-            color: var(--green-primary);
-            margin: var(--spacing-sm) 0;
-        }
-
-        .deal-info {
-            font-size: 15px;
-            color: var(--gray);
-            line-height: 25px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .deal-info strong {
-            color: var(--navy-dark);
-            font-weight: 600;
-        }
-
-        .deal-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-xs);
-            margin-top: var(--spacing-sm);
-        }
-
-        .tag {
-            background: rgba(97, 206, 112, 0.15);
-            border: 1px solid rgba(26, 107, 24, 0.3);
-            color: var(--green-primary);
-            padding: 6px 14px;
-            border-radius: 11111px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-
-        /* Map Link Section */
-        .map-link-section {
-            background: var(--beige);
-            border-radius: 12px;
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            margin-top: var(--spacing-xl);
-        }
-
-        .map-link-section h2 {
-            font-size: 35px;
-            font-weight: 500;
-            margin-bottom: var(--spacing-sm);
-            color: var(--navy-dark);
-        }
-
-        .map-link-section p {
-            color: var(--gray);
-            margin-bottom: var(--spacing-lg);
-            font-size: 17px;
-            line-height: 27px;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            background: var(--green-primary);
-            color: var(--white);
-            text-decoration: none;
-            padding: 16px var(--spacing-lg);
-            border-radius: 11111px;
-            font-weight: 600;
-            font-size: 17px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(26, 107, 24, 0.25);
-            font-family: var(--font-secondary);
-            letter-spacing: 0.3px;
-        }
-
-        .btn-primary:hover {
-            background: var(--green-soft);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26, 107, 24, 0.3);
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -382,20 +245,8 @@
                 font-size: 25px;
             }
 
-            .deals-grid {
-                grid-template-columns: 1fr;
-            }
-
             .stat-card {
                 padding: var(--spacing-md);
-            }
-
-            .deal-title {
-                font-size: 20px;
-            }
-
-            .deal-amount {
-                font-size: 28px;
             }
         }
 
@@ -408,45 +259,13 @@
             color: var(--gray);
             font-size: 17px;
         }
-
-        /* ApexCharts Custom Styling */
-        .apexcharts-tooltip {
-            background: var(--white) !important;
-            border: 2px solid var(--beige) !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .apexcharts-tooltip-title {
-            background: var(--beige) !important;
-            border: none !important;
-            color: var(--navy-dark) !important;
-            font-family: var(--font-primary) !important;
-            font-weight: 600 !important;
-        }
-
-        .apexcharts-tooltip-text {
-            font-family: var(--font-primary) !important;
-            color: var(--navy-dark) !important;
-        }
-
-        .apexcharts-legend-text {
-            color: var(--navy-dark) !important;
-            font-family: var(--font-primary) !important;
-            font-size: 14px !important;
-        }
-
-        .apexcharts-xaxis-label,
-        .apexcharts-yaxis-label {
-            fill: var(--gray) !important;
-            font-family: var(--font-primary) !important;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Zambia Impact Investment Ecosystem</h1>
-            <p>Interactive Data Visualization Dashboard · 2021-2025</p>
+            <h1>Zambia Impact Investment Dashboard</h1>
+            <p>Key Insights into Capital Flow and Sectoral Investment Trends</p>
         </header>
 
         <!-- Summary Statistics -->
@@ -472,72 +291,6 @@
                 <button class="toggle-btn" onclick="toggleSectoralView('count')">Deal Count</button>
             </div>
             <div id="sectoralChart" class="chart"></div>
-        </div>
-
-        <!-- 2. SDG Alignment -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">SDG Impact Alignment</h2>
-                <p class="chart-subtitle">Investment distribution across Sustainable Development Goals</p>
-            </div>
-            <div id="sdgChart" class="chart"></div>
-        </div>
-
-        <!-- 3. Capital Sources -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Capital Sources</h2>
-                <p class="chart-subtitle">Domestic vs. International investment comparison</p>
-            </div>
-            <div id="capitalSourceChart" class="chart"></div>
-        </div>
-
-        <!-- 4. Investment Instruments Timeline -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Investment Instruments Over Time</h2>
-                <p class="chart-subtitle">Evolution of equity, debt, grants, and other instruments</p>
-            </div>
-            <div id="instrumentChart" class="chart"></div>
-        </div>
-
-        <!-- 5. Investor Type Distribution -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Investor Type Distribution</h2>
-                <p class="chart-subtitle">Breakdown of investment by investor category</p>
-            </div>
-            <div id="investorChart" class="chart"></div>
-        </div>
-
-        <!-- 6. Top Sectors by Year -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Top Performing Sectors</h2>
-                <p class="chart-subtitle">Highest investment sectors by year</p>
-            </div>
-            <div id="topSectorsChart" class="chart"></div>
-        </div>
-
-        <!-- 7. Top 10 Deals -->
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Top Impact Deals</h2>
-                <p class="chart-subtitle">Zambia's largest disclosed investments</p>
-            </div>
-            <div id="topDeals" class="deals-grid"></div>
-        </div>
-
-        <!-- 8. Geographic Map Link -->
-        <div class="map-link-section">
-            <h2>Global Capital Origin Heat Map</h2>
-            <p>Explore investment sources on an interactive world map</p>
-            <a href="map.html" class="btn-primary">
-                View World Heat Map
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
         </div>
 
         <footer>
@@ -580,15 +333,7 @@
                 animations: {
                     enabled: true,
                     easing: 'easeinout',
-                    speed: 800,
-                    animateGradually: {
-                        enabled: true,
-                        delay: 150
-                    },
-                    dynamicAnimation: {
-                        enabled: true,
-                        speed: 350
-                    }
+                    speed: 800
                 }
             },
             colors: colors.primary,
@@ -670,27 +415,19 @@
             }
         };
 
-        // Load all data files
+        // Load data files
         async function loadData() {
             try {
-                const [sankey, treemap, sectoral, sdg, capitalSource, instruments, topDeals] = await Promise.all([
+                const [sankey, sectoral] = await Promise.all([
                     fetch('data/sankey_data.json').then(r => r.json()),
-                    fetch('data/treemap_data.json').then(r => r.json()),
-                    fetch('data/sectoral_data.json').then(r => r.json()),
-                    fetch('data/sdg_data.json').then(r => r.json()),
-                    fetch('data/capital_source_data.json').then(r => r.json()),
-                    fetch('data/instrument_timeline.json').then(r => r.json()),
-                    fetch('data/top_deals.json').then(r => r.json())
+                    fetch('data/sectoral_data.json').then(r => r.json())
                 ]);
 
-                dashboardData = {
-                    sankey, treemap, sectoral, sdg, capitalSource, instruments, topDeals
-                };
-
+                dashboardData = { sankey, sectoral };
                 renderDashboard();
             } catch (error) {
                 console.error('Error loading data:', error);
-                alert('Error loading data. Please ensure all data files are in the data/ directory.');
+                alert('Error loading data. Please ensure data files are in the data/ directory.');
             }
         }
 
@@ -698,12 +435,6 @@
             renderStats();
             renderSankey();
             renderSectoralChart();
-            renderSDGChart();
-            renderCapitalSourceChart();
-            renderInstrumentChart();
-            renderInvestorChart();
-            renderTopSectorsChart();
-            renderTopDeals();
         }
 
         function renderStats() {
@@ -718,9 +449,9 @@
             });
 
             const stats = [
-                { value: `$${totalInvestment.toFixed(1)}M`, label: 'Total Investment' },
+                { value: `$${Math.round(totalInvestment)}M`, label: 'Total Investment' },
                 { value: totalDeals, label: 'Total Deals' },
-                { value: `$${avgDealSize.toFixed(2)}M`, label: 'Avg Deal Size' },
+                { value: `$${avgDealSize.toFixed(1)}M`, label: 'Avg Deal Size' },
                 { value: sectors.size, label: 'Active Sectors' }
             ];
 
@@ -891,428 +622,6 @@
             event.target.classList.add('active');
 
             renderSectoralChart();
-        }
-
-        function renderSDGChart() {
-            const { sdg } = dashboardData;
-
-            if (sdg.length === 0) {
-                document.getElementById('sdgChart').innerHTML = '<div class="loading">No SDG data available</div>';
-                return;
-            }
-
-            const series = sdg.map(s => s.total_investment);
-            const labels = sdg.map(s => s.name);
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'donut',
-                    height: 450
-                },
-                series: series,
-                labels: labels,
-                plotOptions: {
-                    pie: {
-                        donut: {
-                            size: '65%',
-                            labels: {
-                                show: true,
-                                name: {
-                                    show: true,
-                                    fontSize: '16px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 600,
-                                    color: colors.navy
-                                },
-                                value: {
-                                    show: true,
-                                    fontSize: '24px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 500,
-                                    color: colors.green,
-                                    formatter: function (val) {
-                                        return '$' + parseFloat(val).toFixed(1) + 'M'
-                                    }
-                                },
-                                total: {
-                                    show: true,
-                                    label: 'SDG Investments',
-                                    fontSize: '15px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 600,
-                                    color: colors.navy,
-                                    formatter: function (w) {
-                                        // Note: Deals can have multiple SDGs, so this total may exceed total investment
-                                        const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                        return sdg.length + ' Goals';
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                legend: {
-                    ...commonChartOptions.legend,
-                    position: 'bottom'
-                },
-                tooltip: {
-                    ...commonChartOptions.tooltip,
-                    y: {
-                        formatter: function(val, opts) {
-                            const dealCount = sdg[opts.seriesIndex].deal_count;
-                            return '$' + val.toFixed(2) + 'M (' + dealCount + ' deals)';
-                        }
-                    }
-                }
-            };
-
-            const chart = new ApexCharts(document.querySelector("#sdgChart"), options);
-            chart.render();
-        }
-
-        function renderCapitalSourceChart() {
-            const { capitalSource } = dashboardData;
-            const summary = capitalSource.summary;
-
-            const categories = summary.map(s => s.source);
-            const values = summary.map(s => s.total_value);
-            const dealCounts = summary.map(s => s.deal_count);
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'bar',
-                    height: 400
-                },
-                series: [{
-                    name: 'Investment',
-                    data: values
-                }],
-                xaxis: {
-                    ...commonChartOptions.xaxis,
-                    categories: categories,
-                    title: {
-                        text: 'Capital Source',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    }
-                },
-                yaxis: {
-                    ...commonChartOptions.yaxis,
-                    title: {
-                        text: 'Total Investment (USD Millions)',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    },
-                    labels: {
-                        ...commonChartOptions.yaxis.labels,
-                        formatter: function(val) {
-                            return Math.round(val);
-                        }
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        borderRadius: 6,
-                        columnWidth: '50%',
-                        distributed: true
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function (val) {
-                        return '$' + Math.round(val) + 'M';
-                    },
-                    offsetY: -20,
-                    style: {
-                        fontSize: '14px',
-                        fontWeight: 600,
-                        colors: [colors.navy]
-                    }
-                },
-                legend: {
-                    show: false
-                },
-                tooltip: {
-                    ...commonChartOptions.tooltip,
-                    y: {
-                        formatter: function(val, opts) {
-                            const dealCount = dealCounts[opts.dataPointIndex];
-                            return '$' + val.toFixed(2) + 'M (' + dealCount + ' deals)';
-                        }
-                    }
-                }
-            };
-
-            const chart = new ApexCharts(document.querySelector("#capitalSourceChart"), options);
-            chart.render();
-        }
-
-        function renderInstrumentChart() {
-            const { instruments } = dashboardData;
-
-            const instrumentTypes = [...new Set(instruments.map(i => i.instrument))];
-            const years = [...new Set(instruments.map(i => i.year))].sort();
-
-            const series = instrumentTypes.map(instrument => {
-                const data = years.map(year => {
-                    const item = instruments.find(i => i.instrument === instrument && i.year === year);
-                    return item ? item.value : 0;
-                });
-
-                return {
-                    name: instrument,
-                    data: data
-                };
-            });
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'area',
-                    height: 400,
-                    stacked: true
-                },
-                series: series,
-                xaxis: {
-                    ...commonChartOptions.xaxis,
-                    categories: years,
-                    title: {
-                        text: 'Year',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    }
-                },
-                yaxis: {
-                    ...commonChartOptions.yaxis,
-                    title: {
-                        text: 'Investment Volume (USD Millions)',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    },
-                    labels: {
-                        ...commonChartOptions.yaxis.labels,
-                        formatter: function(val) {
-                            return Math.round(val);
-                        }
-                    }
-                },
-                fill: {
-                    type: 'gradient',
-                    gradient: {
-                        opacityFrom: 0.6,
-                        opacityTo: 0.2,
-                        stops: [0, 100]
-                    }
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 2
-                },
-                legend: {
-                    ...commonChartOptions.legend,
-                    position: 'bottom'
-                }
-            };
-
-            const chart = new ApexCharts(document.querySelector("#instrumentChart"), options);
-            chart.render();
-        }
-
-        function renderInvestorChart() {
-            const { sankey } = dashboardData;
-
-            // Extract investor types from nodes
-            const investorTypes = {};
-            sankey.links.forEach(link => {
-                const sourceName = sankey.nodes[link.source].name;
-                if (!investorTypes[sourceName]) {
-                    investorTypes[sourceName] = 0;
-                }
-                investorTypes[sourceName] += link.value;
-            });
-
-            const categories = Object.keys(investorTypes);
-            const values = Object.values(investorTypes);
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'bar',
-                    height: 400
-                },
-                series: [{
-                    name: 'Investment',
-                    data: values
-                }],
-                xaxis: {
-                    ...commonChartOptions.xaxis,
-                    categories: categories,
-                    labels: {
-                        ...commonChartOptions.xaxis.labels,
-                        rotate: -45,
-                        rotateAlways: false
-                    }
-                },
-                yaxis: {
-                    ...commonChartOptions.yaxis,
-                    title: {
-                        text: 'Total Investment (USD Millions)',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    },
-                    labels: {
-                        ...commonChartOptions.yaxis.labels,
-                        formatter: function(val) {
-                            return Math.round(val);
-                        }
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true,
-                        borderRadius: 6,
-                        distributed: true
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function (val) {
-                        return '$' + Math.round(val) + 'M';
-                    },
-                    style: {
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        colors: ['#fff']
-                    }
-                },
-                legend: {
-                    show: false
-                }
-            };
-
-            const chart = new ApexCharts(document.querySelector("#investorChart"), options);
-            chart.render();
-        }
-
-        function renderTopSectorsChart() {
-            const { sectoral } = dashboardData;
-            const years = Object.keys(sectoral).sort();
-
-            // Get top 5 sectors for each year
-            const series = years.map(year => {
-                const sectorData = sectoral[year].sectors.map((sector, idx) => ({
-                    sector: sector,
-                    value: sectoral[year].values[idx]
-                }));
-
-                sectorData.sort((a, b) => b.value - a.value);
-                const top5 = sectorData.slice(0, 5);
-
-                return top5.reduce((sum, item) => sum + item.value, 0);
-            });
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'line',
-                    height: 350
-                },
-                series: [{
-                    name: 'Top 5 Sectors Combined',
-                    data: series
-                }],
-                xaxis: {
-                    ...commonChartOptions.xaxis,
-                    categories: years,
-                    title: {
-                        text: 'Year',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    }
-                },
-                yaxis: {
-                    ...commonChartOptions.yaxis,
-                    title: {
-                        text: 'Investment (USD Millions)',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
-                        }
-                    },
-                    labels: {
-                        ...commonChartOptions.yaxis.labels,
-                        formatter: function(val) {
-                            return Math.round(val);
-                        }
-                    }
-                },
-                markers: {
-                    size: 6,
-                    colors: [colors.green],
-                    strokeColors: '#fff',
-                    strokeWidth: 2,
-                    hover: {
-                        size: 8
-                    }
-                },
-                stroke: {
-                    curve: 'smooth',
-                    width: 3
-                }
-            };
-
-            const chart = new ApexCharts(document.querySelector("#topSectorsChart"), options);
-            chart.render();
-        }
-
-        function renderTopDeals() {
-            const { topDeals } = dashboardData;
-
-            const dealsHTML = topDeals.map((deal, idx) => `
-                <div class="deal-card">
-                    <div class="deal-rank">#${idx + 1}</div>
-                    <div class="deal-title">${deal.name}</div>
-                    <div class="deal-amount">$${deal.ticket_size.toFixed(2)}M</div>
-                    <div class="deal-info">
-                        <div><strong>Investor:</strong> ${deal.investor}</div>
-                        <div><strong>Sector:</strong> ${deal.sector}</div>
-                        <div><strong>Year:</strong> ${deal.year} • ${deal.segment}</div>
-                        <div><strong>Type:</strong> ${deal.instrument}</div>
-                    </div>
-                    <div class="deal-tags">
-                        ${deal.sdgs.map(sdg => `<span class="tag">SDG ${sdg}</span>`).join('')}
-                    </div>
-                </div>
-            `).join('');
-
-            document.getElementById('topDeals').innerHTML = dealsHTML;
         }
 
         // Initialize dashboard
