@@ -1,0 +1,86 @@
+[
+  {
+    "sdg": 1,
+    "total_investment": 277.49752,
+    "deal_count": 38,
+    "name": "SDG 1: No Poverty"
+  },
+  {
+    "sdg": 2,
+    "total_investment": 301.25424399999997,
+    "deal_count": 31,
+    "name": "SDG 2: Zero Hunger"
+  },
+  {
+    "sdg": 3,
+    "total_investment": 7.274444,
+    "deal_count": 6,
+    "name": "SDG 3: Good Health"
+  },
+  {
+    "sdg": 4,
+    "total_investment": 1.219044,
+    "deal_count": 3,
+    "name": "SDG 4: Quality Education"
+  },
+  {
+    "sdg": 5,
+    "total_investment": 27.036244,
+    "deal_count": 14,
+    "name": "SDG 5: Gender Equality"
+  },
+  {
+    "sdg": 7,
+    "total_investment": 946.2838800000001,
+    "deal_count": 43,
+    "name": "SDG 7: Clean Energy"
+  },
+  {
+    "sdg": 8,
+    "total_investment": 333.838688,
+    "deal_count": 46,
+    "name": "SDG 8: Decent Work"
+  },
+  {
+    "sdg": 9,
+    "total_investment": 477.722528,
+    "deal_count": 35,
+    "name": "SDG 9: Innovation"
+  },
+  {
+    "sdg": 10,
+    "total_investment": 1.209444,
+    "deal_count": 2,
+    "name": "SDG 10: Reduced Inequalities"
+  },
+  {
+    "sdg": 11,
+    "total_investment": 17.77612,
+    "deal_count": 9,
+    "name": "SDG 11: Sustainable Cities"
+  },
+  {
+    "sdg": 12,
+    "total_investment": 15.5,
+    "deal_count": 2,
+    "name": "SDG 12: Responsible Consumption"
+  },
+  {
+    "sdg": 13,
+    "total_investment": 839.19388,
+    "deal_count": 38,
+    "name": "SDG 13: Climate Action"
+  },
+  {
+    "sdg": 15,
+    "total_investment": 6.1,
+    "deal_count": 4,
+    "name": "SDG 15: Life on Land"
+  },
+  {
+    "sdg": 16,
+    "total_investment": 0.515,
+    "deal_count": 2,
+    "name": "SDG 16: Peace & Justice"
+  }
+]

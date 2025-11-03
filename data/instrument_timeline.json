@@ -1,0 +1,122 @@
+[
+  {
+    "year": 2021,
+    "instrument": "Debt",
+    "value": 28.9,
+    "count": 6
+  },
+  {
+    "year": 2021,
+    "instrument": "Equity",
+    "value": 31.767443999999998,
+    "count": 11
+  },
+  {
+    "year": 2021,
+    "instrument": "Grant",
+    "value": 18.53532,
+    "count": 14
+  },
+  {
+    "year": 2021,
+    "instrument": "Guarantee",
+    "value": 14.49608,
+    "count": 1
+  },
+  {
+    "year": 2022,
+    "instrument": "Convertible",
+    "value": 2.0,
+    "count": 1
+  },
+  {
+    "year": 2022,
+    "instrument": "Debt",
+    "value": 30.0,
+    "count": 1
+  },
+  {
+    "year": 2022,
+    "instrument": "Equity",
+    "value": 45.709444,
+    "count": 10
+  },
+  {
+    "year": 2022,
+    "instrument": "Grant",
+    "value": 5.175,
+    "count": 4
+  },
+  {
+    "year": 2022,
+    "instrument": "Mezzanine",
+    "value": 0.908,
+    "count": 1
+  },
+  {
+    "year": 2023,
+    "instrument": "Debt",
+    "value": 80.2,
+    "count": 9
+  },
+  {
+    "year": 2023,
+    "instrument": "Equity",
+    "value": 71.9492,
+    "count": 9
+  },
+  {
+    "year": 2023,
+    "instrument": "Grant",
+    "value": 6.70572,
+    "count": 8
+  },
+  {
+    "year": 2024,
+    "instrument": "Debt",
+    "value": 335.3,
+    "count": 15
+  },
+  {
+    "year": 2024,
+    "instrument": "Equity",
+    "value": 287.358888,
+    "count": 11
+  },
+  {
+    "year": 2024,
+    "instrument": "Grant",
+    "value": 35.910000000000004,
+    "count": 8
+  },
+  {
+    "year": 2024,
+    "instrument": "Guarantee",
+    "value": 27.0,
+    "count": 1
+  },
+  {
+    "year": 2024,
+    "instrument": "Mezzanine",
+    "value": 200.0,
+    "count": 0
+  },
+  {
+    "year": 2025,
+    "instrument": "Debt",
+    "value": 96.5,
+    "count": 6
+  },
+  {
+    "year": 2025,
+    "instrument": "Equity",
+    "value": 85.08,
+    "count": 8
+  },
+  {
+    "year": 2025,
+    "instrument": "Mezzanine",
+    "value": 4.0,
+    "count": 2
+  }
+]

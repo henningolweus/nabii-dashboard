@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zambia Investment Map | NABII</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #121C27;
+            color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #1B8C43 0%, #1A6B18 50%, #ECE6E1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chart-container {
+            background: #1f2d3d;
+            border: 1px solid #2d3a4a;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .chart-container h2 {
+            color: #FFFFFF;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .chart {
+            width: 100%;
+            min-height: 600px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #1B8C43, #1A6B18);
+            border-radius: 11111px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(27, 140, 67, 0.3);
+        }
+
+        .info-box {
+            background: rgba(27, 140, 67, 0.1);
+            border-left: 4px solid #1B8C43;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            color: #C4C4C4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zambia Investment Geospatial Map</h1>
+            <p>Geographic distribution of impact investments</p>
+        </header>
+
+        <a href="index.html" class="back-link">← Back to Dashboard</a>
+
+        <div class="info-box">
+            <strong>Note:</strong> This visualization shows the geographic concentration of investments across Zambia,
+            with emphasis on major business hubs like Lusaka and the Copperbelt Province.
+        </div>
+
+        <div class="chart-container">
+            <div id="mapChart" class="chart"></div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Regional Investment Distribution</h2>
+            <div id="regionalChart" class="chart" style="min-height: 400px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Zambia provinces with approximate coordinates and investment concentrations
+        const zambiaRegions = {
+            'Lusaka': { lat: -15.4167, lon: 28.2833, share: 0.65 },
+            'Copperbelt': { lat: -12.8, lon: 28.2, share: 0.20 },
+            'Southern': { lat: -16.5, lon: 27.0, share: 0.05 },
+            'Central': { lat: -14.0, lon: 28.5, share: 0.03 },
+            'Eastern': { lat: -13.5, lon: 32.0, share: 0.02 },
+            'Northern': { lat: -10.5, lon: 31.0, share: 0.02 },
+            'Western': { lat: -15.0, lon: 23.0, share: 0.01 },
+            'Luapula': { lat: -11.5, lon: 29.0, share: 0.01 },
+            'Muchinga': { lat: -11.5, lon: 32.0, share: 0.005 },
+            'North-Western': { lat: -12.5, lon: 25.0, share: 0.005 }
+        };
+
+        async function loadDataAndRender() {
+            try {
+                // Load sectoral data to get total investment
+                const sectoral = await fetch('data/sectoral_data.json').then(r => r.json());
+
+                let totalInvestment = 0;
+                Object.values(sectoral).forEach(year => {
+                    year.values.forEach(v => totalInvestment += v);
+                });
+
+                renderMap(totalInvestment);
+                renderRegionalChart(totalInvestment);
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function renderMap(totalInvestment) {
+            const regions = Object.keys(zambiaRegions);
+            const lats = regions.map(r => zambiaRegions[r].lat);
+            const lons = regions.map(r => zambiaRegions[r].lon);
+            const investments = regions.map(r => zambiaRegions[r].share * totalInvestment);
+            const sizes = investments.map(inv => Math.sqrt(inv) * 5);
+
+            const data = [{
+                type: 'scattergeo',
+                mode: 'markers+text',
+                lon: lons,
+                lat: lats,
+                text: regions,
+                textposition: 'top center',
+                marker: {
+                    size: sizes,
+                    color: investments,
+                    colorscale: [
+                        [0, '#ECE6E1'],
+                        [0.5, '#1B8C43'],
+                        [1, '#1A6B18']
+                    ],
+                    colorbar: {
+                        title: 'Investment<br>(USD M)',
+                        thickness: 20,
+                        titlefont: { color: '#FFFFFF' },
+                        tickfont: { color: '#FFFFFF' }
+                    },
+                    line: {
+                        color: '#121C27',
+                        width: 2
+                    },
+                    sizemode: 'diameter'
+                },
+                customdata: investments,
+                hovertemplate: '<b>%{text}</b><br>' +
+                             'Investment: $%{customdata:.2f}M<br>' +
+                             '<extra></extra>'
+            }];
+
+            const layout = {
+                title: {
+                    text: 'Investment Concentration by Province',
+                    font: { size: 20, color: '#FFFFFF', family: 'Roboto' }
+                },
+                paper_bgcolor: '#1f2d3d',
+                geo: {
+                    scope: 'africa',
+                    center: { lon: 28, lat: -13 },
+                    projection: { type: 'mercator' },
+                    lonaxis: { range: [21, 34] },
+                    lataxis: { range: [-18, -8] },
+                    showland: true,
+                    landcolor: '#2d3a4a',
+                    showcountries: true,
+                    countrycolor: '#4B535D',
+                    countrywidth: 1,
+                    showlakes: true,
+                    lakecolor: '#1B8C43',
+                    coastlinecolor: '#4B535D',
+                    bgcolor: '#1f2d3d',
+                    resolution: 50
+                },
+                height: 600,
+                margin: { t: 50, b: 20, l: 20, r: 20 }
+            };
+
+            Plotly.newPlot('mapChart', data, layout, {responsive: true});
+        }
+
+        function renderRegionalChart(totalInvestment) {
+            const regions = Object.keys(zambiaRegions).sort((a, b) =>
+                zambiaRegions[b].share - zambiaRegions[a].share
+            );
+
+            const investments = regions.map(r => zambiaRegions[r].share * totalInvestment);
+            const percentages = regions.map(r => (zambiaRegions[r].share * 100).toFixed(1));
+
+            const data = [{
+                type: 'bar',
+                x: investments,
+                y: regions,
+                orientation: 'h',
+                marker: {
+                    color: investments,
+                    colorscale: [
+                        [0, '#ECE6E1'],
+                        [0.5, '#1B8C43'],
+                        [1, '#1A6B18']
+                    ],
+                    line: { width: 2, color: '#121C27' }
+                },
+                text: percentages.map(p => `${p}%`),
+                textposition: 'outside',
+                textfont: { color: '#FFFFFF' },
+                hovertemplate: '<b>%{y}</b><br>Investment: $%{x:.2f}M<br>Share: %{text}<extra></extra>'
+            }];
+
+            const layout = {
+                height: 400,
+                paper_bgcolor: '#1f2d3d',
+                plot_bgcolor: '#1f2d3d',
+                font: { family: 'Roboto', color: '#FFFFFF' },
+                xaxis: {
+                    title: 'Total Investment (USD Millions)',
+                    color: '#C4C4C4',
+                    gridcolor: '#2d3a4a'
+                },
+                yaxis: {
+                    title: '',
+                    autorange: 'reversed',
+                    color: '#C4C4C4',
+                    gridcolor: '#2d3a4a'
+                },
+                margin: { l: 120, r: 50, t: 20, b: 50 },
+                showlegend: false
+            };
+
+            Plotly.newPlot('regionalChart', data, layout, {responsive: true});
+        }
+
+        loadDataAndRender();
+    </script>
+</body>
+</html>

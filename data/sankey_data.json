@@ -1,0 +1,285 @@
+{
+  "nodes": [
+    {
+      "name": "Bank"
+    },
+    {
+      "name": "DFI"
+    },
+    {
+      "name": "Incubator"
+    },
+    {
+      "name": "PE"
+    },
+    {
+      "name": "Pension Fund"
+    },
+    {
+      "name": "Private Debt"
+    },
+    {
+      "name": "VC"
+    },
+    {
+      "name": "Climate & Clean Technology"
+    },
+    {
+      "name": "Energy & Renewable Power"
+    },
+    {
+      "name": "Financial Services & FinTech"
+    },
+    {
+      "name": "Healthcare & Education"
+    },
+    {
+      "name": "Manufacturing & Other"
+    },
+    {
+      "name": "Agriculture & Food Systems"
+    },
+    {
+      "name": "Infrastructure & Real Estate"
+    },
+    {
+      "name": "Technology & Digital Services"
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 7,
+      "value": 2.0,
+      "deal_count": 2
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "value": 115.6,
+      "deal_count": 5
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "value": 37.0,
+      "deal_count": 2
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "value": 9.3,
+      "deal_count": 2
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "value": 3.8499999999999996,
+      "deal_count": 3
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "value": 91.0,
+      "deal_count": 9
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "value": 131.88,
+      "deal_count": 5
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "value": 190.3,
+      "deal_count": 13
+    },
+    {
+      "source": 1,
+      "target": 9,
+      "value": 199.99608,
+      "deal_count": 9
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "value": 6.0,
+      "deal_count": 1
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "value": 3.2,
+      "deal_count": 1
+    },
+    {
+      "source": 2,
+      "target": 12,
+      "value": 2.14072,
+      "deal_count": 6
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "value": 15.266079999999999,
+      "deal_count": 3
+    },
+    {
+      "source": 2,
+      "target": 9,
+      "value": 0.41572,
+      "deal_count": 3
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "value": 0.125,
+      "deal_count": 3
+    },
+    {
+      "source": 2,
+      "target": 13,
+      "value": 0.35072,
+      "deal_count": 1
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "value": 1.6280000000000001,
+      "deal_count": 2
+    },
+    {
+      "source": 2,
+      "target": 14,
+      "value": 1.6492,
+      "deal_count": 4
+    },
+    {
+      "source": 3,
+      "target": 12,
+      "value": 20.408,
+      "deal_count": 4
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "value": 166.0,
+      "deal_count": 1
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "value": 4.9,
+      "deal_count": 2
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "value": 18.3,
+      "deal_count": 2
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "value": 0.5,
+      "deal_count": 1
+    },
+    {
+      "source": 4,
+      "target": 12,
+      "value": 22.0,
+      "deal_count": 1
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "value": 200.0,
+      "deal_count": 0
+    },
+    {
+      "source": 4,
+      "target": 9,
+      "value": 17.5,
+      "deal_count": 1
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "value": 6.922999999999999,
+      "deal_count": 1
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "value": 19.0,
+      "deal_count": 3
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "value": 0.3,
+      "deal_count": 1
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "value": 75.4948,
+      "deal_count": 8
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "value": 5.0,
+      "deal_count": 1
+    },
+    {
+      "source": 5,
+      "target": 11,
+      "value": 6.0,
+      "deal_count": 2
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "value": 1.0,
+      "deal_count": 1
+    },
+    {
+      "source": 6,
+      "target": 12,
+      "value": 9.589444,
+      "deal_count": 2
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "value": 1.335,
+      "deal_count": 3
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "value": 16.305,
+      "deal_count": 10
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "value": 3.2988880000000003,
+      "deal_count": 4
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "value": 0.15,
+      "deal_count": 1
+    },
+    {
+      "source": 6,
+      "target": 14,
+      "value": 1.789444,
+      "deal_count": 3
+    }
+  ]
+}

@@ -1,0 +1,1030 @@
+{
+  "name": "Zambia Impact Investment",
+  "children": [
+    {
+      "name": "PE",
+      "children": [
+        {
+          "name": "30Thirty Capital",
+          "children": [
+            {
+              "name": "Manufacturing & Other",
+              "value": 0.5,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Affirma Capital",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 4.4,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Alitheia IDF, Inoks Capital, KFW DEG",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 8.3,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Cygnum Capital",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 166.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Inside Capital",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 10.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Salt Capital",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 14.0,
+              "deal_count": 2
+            }
+          ]
+        },
+        {
+          "name": "Zebu Investment Partners (Africa Food Security Fund)",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 6.408,
+              "deal_count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "VC",
+      "children": [
+        {
+          "name": "54 Collective",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 0.3,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Acumen",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 1.2,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Adanian Labs",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.06,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Amano Capital",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 2.178888,
+              "deal_count": 2
+            }
+          ]
+        },
+        {
+          "name": "Atom CTO",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 1.089444,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Baobab Network",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.03,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Enygma Ventures",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.23,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "FasterCapital, Bashar Hamood, Hesham Zreik",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 1.089444,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Goodwell Investments",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 8.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Google for Startups",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.3,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Halcyon Incubator",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.01,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Johnson & Johnson Foundation, MIT Solve, Patrick J. McGovern Foundation, Startupbootcamp Cape Town, Tony Elumelu Foundation",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 0.12,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Launch Africa Ventures",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 0.4,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Opes Impact Fund",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.125,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Renew Capital",
+          "children": [
+            {
+              "name": "Manufacturing & Other",
+              "value": 0.15,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Seedstars, Southern Africa Innovation Support",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.01,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Tiger Global Management, ACE & Company, Babs Ogundeyi, DFS Lab, Gbenga Ajayi, Goodwater Capital, LoftyInc Capital, Risana Zitha, Runa Capital, The Todd & Rahul Angel Fund, True Capital Management, Ventures Platform, Vibe VC, Zrosk Investment Management",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 3.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Tiger Global Management, Earl Grey Capital, Not Boring Capital, Silverbacks Holdings, Suya Ventures, Vibe VC",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 12.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Torrey Pines Investment",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 1.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Village Capital",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.505,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Visa Accelerator",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.05,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Y Combinator, Ventures Platform",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.12,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Bank",
+      "children": [
+        {
+          "name": "Absa Bank",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 12.8,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Atlas Mara Bank Zambia",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 12.8,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Stanbic Bank Zambia",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 90.0,
+              "deal_count": 3
+            },
+            {
+              "name": "Manufacturing & Other",
+              "value": 2.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Standard Chartered Zambia",
+          "children": [
+            {
+              "name": "Manufacturing & Other",
+              "value": 1.3499999999999999,
+              "deal_count": 2
+            },
+            {
+              "name": "Financial Services & FinTech",
+              "value": 2.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Healthcare & Education",
+              "value": 0.8,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "FNB Zambia",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 8.5,
+              "deal_count": 1
+            },
+            {
+              "name": "Climate & Clean Technology",
+              "value": 0.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "ZANACO",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 1.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Development Bank of Zambia",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 35.0,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Private Debt",
+      "children": [
+        {
+          "name": "Africa Agriculture Trade Investment Fund (AATIF)",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 2.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "African Local Currency Bond Fund (ALCB Fund)",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 32.5,
+              "deal_count": 2
+            }
+          ]
+        },
+        {
+          "name": "bettervest GmbH",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 1.1948,
+              "deal_count": 1
+            },
+            {
+              "name": "Climate & Clean Technology",
+              "value": 0.3,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Emerging Africa & Asia Infrastructure Fund (EAIF)",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 38.9,
+              "deal_count": 2
+            }
+          ]
+        },
+        {
+          "name": "Oikocredit International",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 8.5,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 2.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Oikocredit",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 8.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "SIMA Angaza Distributor Finance Fund",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.4,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "SIMA Energy Access Relief Fund (EARF)",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "XSML Capital",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 1.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Manufacturing & Other",
+              "value": 6.0,
+              "deal_count": 2
+            },
+            {
+              "name": "Healthcare & Education",
+              "value": 5.0,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Incubator",
+      "children": [
+        {
+          "name": "Africa Enterprise Challenge Fund (AECF)",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.76,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Africa Startup Initiative",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 0.055,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Catalytic Africa",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 0.0696,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Catalytic Africa, Zambia Business Angels Network",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 0.0696,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Celo Camp",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.015,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Cleantech Open",
+          "children": [
+            {
+              "name": "Manufacturing & Other",
+              "value": 0.028,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Comic Relief",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 0.01,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "GITEX AFRICA",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.05,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "International Trade Centre",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 0.18,
+              "deal_count": 3
+            },
+            {
+              "name": "Technology & Digital Services",
+              "value": 0.06,
+              "deal_count": 1
+            },
+            {
+              "name": "Healthcare & Education",
+              "value": 0.06,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "SAIS",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 0.35072,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "SEED",
+          "children": [
+            {
+              "name": "Manufacturing & Other",
+              "value": 1.6,
+              "deal_count": 1
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 1.6,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Smart Cities Innovation Programme",
+          "children": [
+            {
+              "name": "Technology & Digital Services",
+              "value": 1.45,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "The Future is Female Mentorship Programme",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 0.35072,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "The GSMA Innovation Fund",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 14.49608,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Tony Elumelu Foundation",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 0.01,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "UNDP",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 0.01,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Yale Africa Startup Review",
+          "children": [
+            {
+              "name": "Infrastructure & Real Estate",
+              "value": 0.35072,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DFI",
+      "children": [
+        {
+          "name": "African Development Bank (AfDB)",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 19.6,
+              "deal_count": 1
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 32.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "British International Investment (BII)",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 87.5,
+              "deal_count": 3
+            }
+          ]
+        },
+        {
+          "name": "Danish Investment Fund for Developing Countries, EDFI ElectriFI, InfraCo Africa",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 15.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "DFC (U.S. International Development Finance Corporation)",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 15.0,
+              "deal_count": 2
+            },
+            {
+              "name": "Financial Services & FinTech",
+              "value": 13.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Manufacturing & Other",
+              "value": 3.2,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 40.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "EDFI ElectriFI",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 2.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "EDFI Management Company",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 3.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "EDFI Management Company, Private Infrastructure Development Group",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 4.64,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "ElectriFI (EDFI MC)",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 4.64,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 26.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "European Investment Bank (EIB)",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 11.6,
+              "deal_count": 1
+            },
+            {
+              "name": "Financial Services & FinTech",
+              "value": 14.49608,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "FinDev Canada",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 100.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Finnfund",
+          "children": [
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 9.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "FMO",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 50.0,
+              "deal_count": 2
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 18.9,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "GuarantCo",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 27.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "IFU",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 1.5,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Industrial Development Corporation (IDC)",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 10.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 2.4,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Infraco Africa",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 15.5,
+              "deal_count": 2
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 10.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "International Finance Corporation (IFC)",
+          "children": [
+            {
+              "name": "Climate & Clean Technology",
+              "value": 3.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Nefco",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 1.9,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Norfund",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 4.5,
+              "deal_count": 1
+            },
+            {
+              "name": "Financial Services & FinTech",
+              "value": 10.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 8.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Shelter Afrique",
+          "children": [
+            {
+              "name": "Infrastructure & Real Estate",
+              "value": 6.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "Swedfund",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 15.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 27.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "ZCCM-IH (ZCCM Investments Holdings Plc)",
+          "children": [
+            {
+              "name": "Energy & Renewable Power",
+              "value": 10.0,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pension Fund",
+      "children": [
+        {
+          "name": "NAPSA",
+          "children": [
+            {
+              "name": "Financial Services & FinTech",
+              "value": 17.5,
+              "deal_count": 1
+            },
+            {
+              "name": "Energy & Renewable Power",
+              "value": 200.0,
+              "deal_count": 1
+            },
+            {
+              "name": "Agriculture & Food Systems",
+              "value": 22.0,
+              "deal_count": 1
+            }
+          ]
+        },
+        {
+          "name": "WCFCB (Workers\u2019 Compensation Fund Control Board)",
+          "children": [
+            {
+              "name": "Healthcare & Education",
+              "value": 6.922999999999999,
+              "deal_count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

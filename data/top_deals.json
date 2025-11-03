@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Africa Go Green Fund (AGG) Management",
+    "investor": "Cygnum Capital",
+    "sector": "Climate & Clean Technology",
+    "year": 2024,
+    "ticket_size": 166.0,
+    "instrument": "Equity",
+    "sdgs": [
+      7,
+      9,
+      13
+    ],
+    "details": "Managed fund with focus on climate resilience in Africa, involved in Mawingu Networks financing",
+    "segment": "PE"
+  },
+  {
+    "name": "FirstRand Bank",
+    "investor": "FinDev Canada",
+    "sector": "Climate & Clean Technology",
+    "year": 2024,
+    "ticket_size": 100.0,
+    "instrument": "Debt",
+    "sdgs": [
+      2,
+      7,
+      13
+    ],
+    "details": "Ticket: USD 20 million, Type: Loan, Sector: Financial Services (SME lending)",
+    "segment": "DFI"
+  },
+  {
+    "name": "GreenCo Green Financing Deal",
+    "investor": "Stanbic Bank Zambia",
+    "sector": "Energy & Renewable Power",
+    "year": 2024,
+    "ticket_size": 55.5,
+    "instrument": "Equity",
+    "sdgs": [
+      7
+    ],
+    "details": "Financing for renewable energy imports during drought crisis",
+    "segment": "Bank"
+  },
+  {
+    "name": "Africa GreenCo",
+    "investor": "DFC (U.S. International Development Finance Corporation)",
+    "sector": "Energy & Renewable Power",
+    "year": 2024,
+    "ticket_size": 40.0,
+    "instrument": "Debt",
+    "sdgs": [
+      7,
+      9,
+      13
+    ],
+    "details": "Africa GreenCo raised $40000000 on 2024-10-10 in Debt",
+    "segment": "DFI"
+  },
+  {
+    "name": "First National Bank Zambia Limited",
+    "investor": "FMO",
+    "sector": "Financial Services & FinTech",
+    "year": 2024,
+    "ticket_size": 40.0,
+    "instrument": "Debt",
+    "sdgs": [
+      1,
+      7,
+      8,
+      13
+    ],
+    "details": "Ticket: USD 40 million (USD 20 million committed, USD 20 million uncommitted), Type: Senior Term Loan, Sector: Financial Services (Green Finance)",
+    "segment": "DFI"
+  },
+  {
+    "name": "Growth Investment Partners Zambia",
+    "investor": "British International Investment (BII)",
+    "sector": "Financial Services & FinTech",
+    "year": 2025,
+    "ticket_size": 37.5,
+    "instrument": "Equity",
+    "sdgs": [
+      1,
+      8
+    ],
+    "details": "Ticket: USD 37.5 million, Type: Fund Investment/Equity, Sector: SME Finance",
+    "segment": "DFI"
+  },
+  {
+    "name": "Various Impact investments",
+    "investor": "Development Bank of Zambia",
+    "sector": "Financial Services & FinTech",
+    "year": 2023,
+    "ticket_size": 35.0,
+    "instrument": "Equity",
+    "sdgs": [
+      8
+    ],
+    "details": "Impact measurement tools for development projects",
+    "segment": "Bank"
+  },
+  {
+    "name": "ZamBeef Products",
+    "investor": "African Development Bank (AfDB)",
+    "sector": "Agriculture & Food Systems",
+    "year": 2025,
+    "ticket_size": 32.0,
+    "instrument": "Debt",
+    "sdgs": [
+      2
+    ],
+    "details": "AfDB backs ZamBeef with $32m guarantee to scale food production and support local farmers",
+    "segment": "DFI"
+  },
+  {
+    "name": "Zambia National Commercial Bank",
+    "investor": "British International Investment (BII)",
+    "sector": "Financial Services & FinTech",
+    "year": 2022,
+    "ticket_size": 30.0,
+    "instrument": "Debt",
+    "sdgs": [
+      1,
+      8,
+      13
+    ],
+    "details": "Zambia National Commercial Bank raised $30000000 on 2022-06-15 in Debt",
+    "segment": "DFI"
+  },
+  {
+    "name": "Africa GreenCo",
+    "investor": "GuarantCo",
+    "sector": "Energy & Renewable Power",
+    "year": 2024,
+    "ticket_size": 27.0,
+    "instrument": "Guarantee",
+    "sdgs": [
+      7,
+      13
+    ],
+    "details": "Ticket: USD 27 million, Type: Guarantee, Sector: Renewable Energy Trading",
+    "segment": "DFI"
+  }
+]

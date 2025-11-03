@@ -1,0 +1,66 @@
+{
+  "summary": [
+    {
+      "source": "Domestic",
+      "total_value": 440.05188799999996,
+      "deal_count": 25
+    },
+    {
+      "source": "International",
+      "total_value": 967.443208,
+      "deal_count": 101
+    }
+  ],
+  "by_type": [
+    {
+      "Capital_Source": "Domestic",
+      "Segment": "Bank",
+      "Ticket_Size_USD_Millions": 167.75
+    },
+    {
+      "Capital_Source": "Domestic",
+      "Segment": "DFI",
+      "Ticket_Size_USD_Millions": 22.4
+    },
+    {
+      "Capital_Source": "Domestic",
+      "Segment": "PE",
+      "Ticket_Size_USD_Millions": 1.0
+    },
+    {
+      "Capital_Source": "Domestic",
+      "Segment": "Pension Fund",
+      "Ticket_Size_USD_Millions": 246.423
+    },
+    {
+      "Capital_Source": "Domestic",
+      "Segment": "VC",
+      "Ticket_Size_USD_Millions": 2.4788880000000004
+    },
+    {
+      "Capital_Source": "International",
+      "Segment": "DFI",
+      "Ticket_Size_USD_Millions": 599.97608
+    },
+    {
+      "Capital_Source": "International",
+      "Segment": "Incubator",
+      "Ticket_Size_USD_Millions": 21.575439999999997
+    },
+    {
+      "Capital_Source": "International",
+      "Segment": "PE",
+      "Ticket_Size_USD_Millions": 209.10799999999998
+    },
+    {
+      "Capital_Source": "International",
+      "Segment": "Private Debt",
+      "Ticket_Size_USD_Millions": 106.7948
+    },
+    {
+      "Capital_Source": "International",
+      "Segment": "VC",
+      "Ticket_Size_USD_Millions": 29.988888
+    }
+  ]
+}
