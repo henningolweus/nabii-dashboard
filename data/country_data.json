@@ -1,0 +1,112 @@
+[
+  {
+    "country": "Zambia",
+    "total_investment": 440.05188799999996,
+    "deal_count": 25
+  },
+  {
+    "country": "United Kingdom",
+    "total_investment": 194.525524,
+    "deal_count": 13
+  },
+  {
+    "country": "Switzerland",
+    "total_investment": 166.31,
+    "deal_count": 7
+  },
+  {
+    "country": "Netherlands",
+    "total_investment": 108.4,
+    "deal_count": 11
+  },
+  {
+    "country": "Canada",
+    "total_investment": 100.0,
+    "deal_count": 1
+  },
+  {
+    "country": "United States",
+    "total_investment": 94.53944,
+    "deal_count": 24
+  },
+  {
+    "country": "C\u00f4te d\u2019Ivoire",
+    "total_investment": 51.6,
+    "deal_count": 2
+  },
+  {
+    "country": "Sweden",
+    "total_investment": 42.0,
+    "deal_count": 2
+  },
+  {
+    "country": "Belgium",
+    "total_investment": 40.78,
+    "deal_count": 5
+  },
+  {
+    "country": "Germany",
+    "total_investment": 40.644800000000004,
+    "deal_count": 8
+  },
+  {
+    "country": "Luxembourg",
+    "total_investment": 26.09608,
+    "deal_count": 2
+  },
+  {
+    "country": "Norway",
+    "total_investment": 22.5,
+    "deal_count": 3
+  },
+  {
+    "country": "Denmark",
+    "total_investment": 17.0,
+    "deal_count": 2
+  },
+  {
+    "country": "Mauritius",
+    "total_investment": 16.808,
+    "deal_count": 4
+  },
+  {
+    "country": "South Africa",
+    "total_investment": 14.0,
+    "deal_count": 2
+  },
+  {
+    "country": "Finland",
+    "total_investment": 11.25072,
+    "deal_count": 3
+  },
+  {
+    "country": "Nigeria",
+    "total_investment": 8.31,
+    "deal_count": 2
+  },
+  {
+    "country": "Kenya",
+    "total_investment": 6.9592,
+    "deal_count": 5
+  },
+  {
+    "country": "Singapore",
+    "total_investment": 4.4,
+    "deal_count": 1
+  },
+  {
+    "country": "United Arab Emirates",
+    "total_investment": 1.1394440000000001,
+    "deal_count": 2
+  },
+  {
+    "country": "Italy",
+    "total_investment": 0.125,
+    "deal_count": 1
+  },
+  {
+    "country": "Tunisia",
+    "total_investment": 0.055,
+    "deal_count": 1
+  }
+]

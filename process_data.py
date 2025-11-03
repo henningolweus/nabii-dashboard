@@ -296,6 +296,25 @@ def generate_top_deals(df, n=10):
 
     return deals
 
+def generate_country_data(df):
+    """Generate geographic data by country of capital origin"""
+
+    # Use all data with actual ticket values
+    country_df = df[df['Country of Origin'].notna()].copy()
+
+    # Group by country
+    country_summary = country_df.groupby('Country of Origin').agg({
+        'Ticket_Size_USD_Millions': 'sum',
+        'Deal1_Name': 'count'
+    }).reset_index()
+
+    country_summary.columns = ['country', 'total_investment', 'deal_count']
+
+    # Sort by investment amount
+    country_summary = country_summary.sort_values('total_investment', ascending=False)
+
+    return country_summary.to_dict('records')
+
 def generate_all_visualizations(filepath, output_dir='data'):
     """Generate all visualization data files"""
 
@@ -348,6 +367,12 @@ def generate_all_visualizations(filepath, output_dir='data'):
     top_deals = generate_top_deals(df, n=10)
     with open(f'{output_dir}/top_deals.json', 'w') as f:
         json.dump(top_deals, f, indent=2)
+
+    # 8. Country geographic data
+    print("- Country Geographic Data")
+    country_data = generate_country_data(df)
+    with open(f'{output_dir}/country_data.json', 'w') as f:
+        json.dump(country_data, f, indent=2)
 
     print(f"\nAll visualization data generated in '{output_dir}/' directory")
     print("Ready to create interactive visualizations!")

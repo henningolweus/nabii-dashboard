@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zambia Investment Map | NABII</title>
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Capital Origin Map | NABII</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* NABII Color Palette */
+            --navy-dark: #121C27;
+            --green-primary: #1A6B18;
+            --green-soft: #61CE70;
+            --white: #FFFFFF;
+            --gray: #4B535D;
+            --beige: #ECE6E1;
+            --spacing-lg: 40px;
+            --spacing-md: 24px;
+            --spacing-sm: 16px;
+            --font-primary: 'Roboto', sans-serif;
+            --font-secondary: 'Public Sans', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,259 +31,425 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #121C27;
-            color: #FFFFFF;
+            font-family: var(--font-primary);
+            background: var(--white);
+            color: var(--navy-dark);
+            font-size: 17px;
+            line-height: 27px;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--spacing-lg) var(--spacing-md);
         }
 
         header {
             text-align: center;
-            color: white;
-            padding: 40px 20px;
-            margin-bottom: 30px;
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            background: var(--beige);
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: clamp(35px, 5vw, 45px);
+            font-weight: 500;
+            color: var(--navy-dark);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 20px;
+            color: var(--gray);
+            font-weight: 400;
+            line-height: 29px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--green-primary);
+            text-decoration: none;
+            padding: 12px var(--spacing-md);
+            border: 2px solid var(--green-primary);
+            border-radius: 11111px;
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s ease;
             font-weight: 600;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #1B8C43 0%, #1A6B18 50%, #ECE6E1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: var(--font-secondary);
+        }
+
+        .back-link:hover {
+            background: var(--green-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 107, 24, 0.25);
+        }
+
+        .info-box {
+            background: var(--beige);
+            border-left: 4px solid var(--green-primary);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            border-radius: 8px;
+        }
+
+        .info-box strong {
+            color: var(--navy-dark);
+            font-weight: 600;
         }
 
         .chart-container {
-            background: #1f2d3d;
-            border: 1px solid #2d3a4a;
-            border-radius: 24px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: var(--white);
+            border: 2px solid var(--beige);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            transition: box-shadow 0.3s ease;
         }
 
-        .chart-container h2 {
-            color: #FFFFFF;
-            font-weight: 600;
-            margin-bottom: 20px;
+        .chart-container:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .chart-header {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .chart-title {
+            font-size: 35px;
+            font-weight: 500;
+            color: var(--navy-dark);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .chart-subtitle {
+            color: var(--gray);
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 27px;
         }
 
         .chart {
             width: 100%;
-            min-height: 600px;
+            min-height: 500px;
         }
 
-        .back-link {
-            display: inline-block;
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #1B8C43, #1A6B18);
-            border-radius: 11111px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            font-weight: 600;
+        footer {
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border-top: 2px solid var(--beige);
+            color: var(--gray);
+            font-size: 15px;
         }
 
-        .back-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(27, 140, 67, 0.3);
-        }
+        @media (max-width: 767px) {
+            header h1 {
+                font-size: 30px;
+            }
 
-        .info-box {
-            background: rgba(27, 140, 67, 0.1);
-            border-left: 4px solid #1B8C43;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            color: #C4C4C4;
+            .chart-container {
+                padding: var(--spacing-md);
+            }
+
+            .chart-title {
+                font-size: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Zambia Investment Geospatial Map</h1>
-            <p>Geographic distribution of impact investments</p>
+            <h1>Capital Origin Geographic Distribution</h1>
+            <p>Investment sources by country across Zambia's ecosystem</p>
         </header>
 
-        <a href="index.html" class="back-link">← Back to Dashboard</a>
+        <a href="index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to Dashboard
+        </a>
 
         <div class="info-box">
-            <strong>Note:</strong> This visualization shows the geographic concentration of investments across Zambia,
-            with emphasis on major business hubs like Lusaka and the Copperbelt Province.
+            <strong>Note:</strong> This visualization shows the geographic distribution of capital sources investing in Zambia's impact ecosystem. Countries are sized by total investment volume.
         </div>
 
         <div class="chart-container">
-            <div id="mapChart" class="chart"></div>
+            <div class="chart-header">
+                <h2 class="chart-title">Investment by Country of Origin</h2>
+                <p class="chart-subtitle">Total investment and deal count by investor country</p>
+            </div>
+            <div id="countryChart" class="chart"></div>
         </div>
 
         <div class="chart-container">
-            <h2>Regional Investment Distribution</h2>
-            <div id="regionalChart" class="chart" style="min-height: 400px;"></div>
+            <div class="chart-header">
+                <h2 class="chart-title">Top Investing Countries</h2>
+                <p class="chart-subtitle">Ranked by total investment volume</p>
+            </div>
+            <div id="topCountriesChart" class="chart" style="min-height: 600px;"></div>
         </div>
+
+        <footer>
+            <p>NABII · Zambia Impact Investment Ecosystem · 2021-2025</p>
+        </footer>
     </div>
 
     <script>
-        // Zambia provinces with approximate coordinates and investment concentrations
-        const zambiaRegions = {
-            'Lusaka': { lat: -15.4167, lon: 28.2833, share: 0.65 },
-            'Copperbelt': { lat: -12.8, lon: 28.2, share: 0.20 },
-            'Southern': { lat: -16.5, lon: 27.0, share: 0.05 },
-            'Central': { lat: -14.0, lon: 28.5, share: 0.03 },
-            'Eastern': { lat: -13.5, lon: 32.0, share: 0.02 },
-            'Northern': { lat: -10.5, lon: 31.0, share: 0.02 },
-            'Western': { lat: -15.0, lon: 23.0, share: 0.01 },
-            'Luapula': { lat: -11.5, lon: 29.0, share: 0.01 },
-            'Muchinga': { lat: -11.5, lon: 32.0, share: 0.005 },
-            'North-Western': { lat: -12.5, lon: 25.0, share: 0.005 }
+        // NABII Color Palette
+        const colors = {
+            primary: ['#1A6B18', '#61CE70', '#2E7D32', '#81C784', '#1B5E20', '#4CAF50', '#66BB6A', '#388E3C'],
+            green: '#1A6B18',
+            greenSoft: '#61CE70',
+            navy: '#121C27',
+            gray: '#4B535D',
+            beige: '#ECE6E1'
         };
 
-        async function loadDataAndRender() {
+        // Common chart options
+        const commonChartOptions = {
+            chart: {
+                fontFamily: 'Roboto, sans-serif',
+                foreColor: colors.navy,
+                toolbar: {
+                    show: true,
+                    tools: {
+                        download: true,
+                        selection: false,
+                        zoom: false,
+                        zoomin: false,
+                        zoomout: false,
+                        pan: false,
+                        reset: false
+                    }
+                }
+            },
+            colors: colors.primary,
+            grid: {
+                borderColor: colors.beige
+            },
+            xaxis: {
+                labels: {
+                    style: {
+                        colors: colors.gray,
+                        fontSize: '14px',
+                        fontFamily: 'Roboto, sans-serif',
+                        fontWeight: 500
+                    }
+                },
+                axisBorder: {
+                    color: colors.beige
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: colors.gray,
+                        fontSize: '14px',
+                        fontFamily: 'Roboto, sans-serif',
+                        fontWeight: 500
+                    }
+                }
+            },
+            legend: {
+                fontSize: '14px',
+                fontFamily: 'Roboto, sans-serif',
+                labels: {
+                    colors: colors.navy
+                }
+            },
+            tooltip: {
+                theme: 'light',
+                style: {
+                    fontSize: '14px',
+                    fontFamily: 'Roboto, sans-serif'
+                }
+            }
+        };
+
+        // Load country data
+        async function loadData() {
             try {
-                // Load sectoral data to get total investment
-                const sectoral = await fetch('data/sectoral_data.json').then(r => r.json());
-
-                let totalInvestment = 0;
-                Object.values(sectoral).forEach(year => {
-                    year.values.forEach(v => totalInvestment += v);
-                });
-
-                renderMap(totalInvestment);
-                renderRegionalChart(totalInvestment);
+                const response = await fetch('data/country_data.json');
+                const countryData = await response.json();
+                renderCharts(countryData);
             } catch (error) {
                 console.error('Error loading data:', error);
+                alert('Error loading country data. Please ensure country_data.json exists in the data/ folder.');
             }
         }
 
-        function renderMap(totalInvestment) {
-            const regions = Object.keys(zambiaRegions);
-            const lats = regions.map(r => zambiaRegions[r].lat);
-            const lons = regions.map(r => zambiaRegions[r].lon);
-            const investments = regions.map(r => zambiaRegions[r].share * totalInvestment);
-            const sizes = investments.map(inv => Math.sqrt(inv) * 5);
-
-            const data = [{
-                type: 'scattergeo',
-                mode: 'markers+text',
-                lon: lons,
-                lat: lats,
-                text: regions,
-                textposition: 'top center',
-                marker: {
-                    size: sizes,
-                    color: investments,
-                    colorscale: [
-                        [0, '#ECE6E1'],
-                        [0.5, '#1B8C43'],
-                        [1, '#1A6B18']
-                    ],
-                    colorbar: {
-                        title: 'Investment<br>(USD M)',
-                        thickness: 20,
-                        titlefont: { color: '#FFFFFF' },
-                        tickfont: { color: '#FFFFFF' }
-                    },
-                    line: {
-                        color: '#121C27',
-                        width: 2
-                    },
-                    sizemode: 'diameter'
-                },
-                customdata: investments,
-                hovertemplate: '<b>%{text}</b><br>' +
-                             'Investment: $%{customdata:.2f}M<br>' +
-                             '<extra></extra>'
-            }];
-
-            const layout = {
-                title: {
-                    text: 'Investment Concentration by Province',
-                    font: { size: 20, color: '#FFFFFF', family: 'Roboto' }
-                },
-                paper_bgcolor: '#1f2d3d',
-                geo: {
-                    scope: 'africa',
-                    center: { lon: 28, lat: -13 },
-                    projection: { type: 'mercator' },
-                    lonaxis: { range: [21, 34] },
-                    lataxis: { range: [-18, -8] },
-                    showland: true,
-                    landcolor: '#2d3a4a',
-                    showcountries: true,
-                    countrycolor: '#4B535D',
-                    countrywidth: 1,
-                    showlakes: true,
-                    lakecolor: '#1B8C43',
-                    coastlinecolor: '#4B535D',
-                    bgcolor: '#1f2d3d',
-                    resolution: 50
-                },
-                height: 600,
-                margin: { t: 50, b: 20, l: 20, r: 20 }
-            };
-
-            Plotly.newPlot('mapChart', data, layout, {responsive: true});
+        function renderCharts(countryData) {
+            renderCountryDonut(countryData);
+            renderTopCountriesBar(countryData);
         }
 
-        function renderRegionalChart(totalInvestment) {
-            const regions = Object.keys(zambiaRegions).sort((a, b) =>
-                zambiaRegions[b].share - zambiaRegions[a].share
-            );
+        function renderCountryDonut(countryData) {
+            const series = countryData.map(c => c.total_investment);
+            const labels = countryData.map(c => c.country);
 
-            const investments = regions.map(r => zambiaRegions[r].share * totalInvestment);
-            const percentages = regions.map(r => (zambiaRegions[r].share * 100).toFixed(1));
-
-            const data = [{
-                type: 'bar',
-                x: investments,
-                y: regions,
-                orientation: 'h',
-                marker: {
-                    color: investments,
-                    colorscale: [
-                        [0, '#ECE6E1'],
-                        [0.5, '#1B8C43'],
-                        [1, '#1A6B18']
-                    ],
-                    line: { width: 2, color: '#121C27' }
+            const options = {
+                ...commonChartOptions,
+                chart: {
+                    ...commonChartOptions.chart,
+                    type: 'donut',
+                    height: 500
                 },
-                text: percentages.map(p => `${p}%`),
-                textposition: 'outside',
-                textfont: { color: '#FFFFFF' },
-                hovertemplate: '<b>%{y}</b><br>Investment: $%{x:.2f}M<br>Share: %{text}<extra></extra>'
-            }];
+                series: series,
+                labels: labels,
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '65%',
+                            labels: {
+                                show: true,
+                                name: {
+                                    show: true,
+                                    fontSize: '16px',
+                                    fontFamily: 'Roboto, sans-serif',
+                                    fontWeight: 600,
+                                    color: colors.navy
+                                },
+                                value: {
+                                    show: true,
+                                    fontSize: '24px',
+                                    fontFamily: 'Roboto, sans-serif',
+                                    fontWeight: 500,
+                                    color: colors.green,
+                                    formatter: function (val) {
+                                        return '$' + Math.round(parseFloat(val)) + 'M'
+                                    }
+                                },
+                                total: {
+                                    show: true,
+                                    label: 'Total Investment',
+                                    fontSize: '15px',
+                                    fontFamily: 'Roboto, sans-serif',
+                                    fontWeight: 600,
+                                    color: colors.navy,
+                                    formatter: function (w) {
+                                        const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                        return '$' + Math.round(total) + 'M'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    ...commonChartOptions.legend,
+                    position: 'bottom',
+                    horizontalAlign: 'center'
+                },
+                tooltip: {
+                    ...commonChartOptions.tooltip,
+                    y: {
+                        formatter: function(val, opts) {
+                            const dealCount = countryData[opts.seriesIndex].deal_count;
+                            return '$' + Math.round(val) + 'M (' + dealCount + ' deals)';
+                        }
+                    }
+                }
+            };
 
-            const layout = {
-                height: 400,
-                paper_bgcolor: '#1f2d3d',
-                plot_bgcolor: '#1f2d3d',
-                font: { family: 'Roboto', color: '#FFFFFF' },
+            const chart = new ApexCharts(document.querySelector("#countryChart"), options);
+            chart.render();
+        }
+
+        function renderTopCountriesBar(countryData) {
+            // Get top 15 countries
+            const top15 = countryData.slice(0, 15);
+            const categories = top15.map(c => c.country);
+            const values = top15.map(c => c.total_investment);
+            const dealCounts = top15.map(c => c.deal_count);
+
+            const options = {
+                ...commonChartOptions,
+                chart: {
+                    ...commonChartOptions.chart,
+                    type: 'bar',
+                    height: 600
+                },
+                series: [{
+                    name: 'Investment',
+                    data: values
+                }],
                 xaxis: {
-                    title: 'Total Investment (USD Millions)',
-                    color: '#C4C4C4',
-                    gridcolor: '#2d3a4a'
+                    ...commonChartOptions.xaxis,
+                    categories: categories,
+                    labels: {
+                        ...commonChartOptions.xaxis.labels,
+                        style: {
+                            ...commonChartOptions.xaxis.labels.style,
+                            fontSize: '13px'
+                        }
+                    }
                 },
                 yaxis: {
-                    title: '',
-                    autorange: 'reversed',
-                    color: '#C4C4C4',
-                    gridcolor: '#2d3a4a'
+                    ...commonChartOptions.yaxis,
+                    title: {
+                        text: 'Total Investment (USD Millions)',
+                        style: {
+                            color: colors.navy,
+                            fontSize: '15px',
+                            fontWeight: 600
+                        }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
+                        }
+                    }
                 },
-                margin: { l: 120, r: 50, t: 20, b: 50 },
-                showlegend: false
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        borderRadius: 6,
+                        distributed: true,
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) {
+                        return '$' + Math.round(val) + 'M';
+                    },
+                    offsetX: 30,
+                    style: {
+                        fontSize: '13px',
+                        fontWeight: 600,
+                        colors: [colors.navy]
+                    }
+                },
+                legend: {
+                    show: false
+                },
+                tooltip: {
+                    ...commonChartOptions.tooltip,
+                    y: {
+                        formatter: function(val, opts) {
+                            const dealCount = dealCounts[opts.dataPointIndex];
+                            return '$' + Math.round(val) + 'M (' + dealCount + ' deals)';
+                        }
+                    }
+                }
             };
 
-            Plotly.newPlot('regionalChart', data, layout, {responsive: true});
+            const chart = new ApexCharts(document.querySelector("#topCountriesChart"), options);
+            chart.render();
         }
 
-        loadDataAndRender();
+        // Initialize
+        loadData();
     </script>
 </body>
 </html>

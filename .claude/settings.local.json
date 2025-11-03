@@ -4,7 +4,8 @@
       "Bash(python:*)",
       "WebFetch(domain:nabii.org.zm)",
       "WebSearch",
-      "Bash(git --version:*)"
+      "Bash(git --version:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

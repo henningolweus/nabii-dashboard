@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zambia Impact Investment Ecosystem | NABII</title>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -451,7 +452,16 @@
         <!-- Summary Statistics -->
         <div class="stats-grid" id="statsGrid"></div>
 
-        <!-- 1. Sectoral Investment Breakdown -->
+        <!-- 1. Capital Flow Sankey -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h2 class="chart-title">Capital Flow Network</h2>
+                <p class="chart-subtitle">Visualizing capital movement from investor types to sectors</p>
+            </div>
+            <div id="sankeyChart" class="chart" style="min-height: 500px;"></div>
+        </div>
+
+        <!-- 2. Sectoral Investment Breakdown -->
         <div class="chart-container">
             <div class="chart-header">
                 <h2 class="chart-title">Sectoral Investment Trends</h2>
@@ -520,10 +530,10 @@
 
         <!-- 8. Geographic Map Link -->
         <div class="map-link-section">
-            <h2>Geographic Distribution</h2>
-            <p>Explore investment concentration across Zambian provinces</p>
+            <h2>Capital Origin Distribution</h2>
+            <p>Explore investment sources by country of origin</p>
             <a href="map.html" class="btn-primary">
-                View Interactive Map
+                View Country Map
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -686,6 +696,7 @@
 
         function renderDashboard() {
             renderStats();
+            renderSankey();
             renderSectoralChart();
             renderSDGChart();
             renderCapitalSourceChart();
@@ -721,6 +732,66 @@
             `).join('');
 
             document.getElementById('statsGrid').innerHTML = statsHTML;
+        }
+
+        function renderSankey() {
+            const { sankey } = dashboardData;
+
+            const data = [{
+                type: "sankey",
+                orientation: "h",
+                node: {
+                    pad: 20,
+                    thickness: 25,
+                    line: { color: colors.navy, width: 2 },
+                    label: sankey.nodes.map(n => n.name),
+                    color: colors.primary,
+                    font: {
+                        family: 'Roboto, sans-serif',
+                        size: 14,
+                        color: colors.navy
+                    }
+                },
+                link: {
+                    source: sankey.links.map(l => l.source),
+                    target: sankey.links.map(l => l.target),
+                    value: sankey.links.map(l => l.value),
+                    color: sankey.links.map((_, i) => colors.primary[i % colors.primary.length] + '40'),
+                    customdata: sankey.links.map(l => l.deal_count),
+                    hovertemplate: '<b>%{source.label} → %{target.label}</b><br>' +
+                                 'Investment: $%{value:.0f}M<br>' +
+                                 'Deals: %{customdata}<extra></extra>'
+                }
+            }];
+
+            const layout = {
+                paper_bgcolor: 'white',
+                plot_bgcolor: 'white',
+                font: {
+                    family: 'Roboto, sans-serif',
+                    color: colors.navy,
+                    size: 14
+                },
+                height: 500,
+                margin: { l: 20, r: 20, t: 20, b: 20 },
+                hoverlabel: {
+                    bgcolor: 'white',
+                    bordercolor: colors.beige,
+                    font: {
+                        family: 'Roboto, sans-serif',
+                        color: colors.navy
+                    }
+                }
+            };
+
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                displaylogo: false,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d']
+            };
+
+            Plotly.newPlot('sankeyChart', data, layout, config);
         }
 
         function renderSectoralChart() {
@@ -779,6 +850,12 @@
                             color: colors.navy,
                             fontSize: '15px',
                             fontWeight: 600
+                        }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
                         }
                     }
                 },
@@ -861,14 +938,15 @@
                                 },
                                 total: {
                                     show: true,
-                                    label: 'Total Investment',
+                                    label: 'SDG Investments',
                                     fontSize: '15px',
                                     fontFamily: 'Roboto, sans-serif',
                                     fontWeight: 600,
                                     color: colors.navy,
                                     formatter: function (w) {
+                                        // Note: Deals can have multiple SDGs, so this total may exceed total investment
                                         const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                        return '$' + total.toFixed(1) + 'M'
+                                        return sdg.length + ' Goals';
                                     }
                                 }
                             }
@@ -934,6 +1012,12 @@
                             fontSize: '15px',
                             fontWeight: 600
                         }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
+                        }
                     }
                 },
                 plotOptions: {
@@ -947,7 +1031,7 @@
                 dataLabels: {
                     enabled: true,
                     formatter: function (val) {
-                        return '$' + val.toFixed(1) + 'M';
+                        return '$' + Math.round(val) + 'M';
                     },
                     offsetY: -20,
                     style: {
@@ -1022,6 +1106,12 @@
                             fontSize: '15px',
                             fontWeight: 600
                         }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
+                        }
                     }
                 },
                 fill: {
@@ -1091,6 +1181,12 @@
                             fontSize: '15px',
                             fontWeight: 600
                         }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
+                        }
                     }
                 },
                 plotOptions: {
@@ -1103,7 +1199,7 @@
                 dataLabels: {
                     enabled: true,
                     formatter: function (val) {
-                        return '$' + val.toFixed(1) + 'M';
+                        return '$' + Math.round(val) + 'M';
                     },
                     style: {
                         fontSize: '13px',
@@ -1168,6 +1264,12 @@
                             color: colors.navy,
                             fontSize: '15px',
                             fontWeight: 600
+                        }
+                    },
+                    labels: {
+                        ...commonChartOptions.yaxis.labels,
+                        formatter: function(val) {
+                            return Math.round(val);
                         }
                     }
                 },
