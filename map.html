@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capital Origin Map | NABII</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
         }
 
         .container {
-            max-width: 1500px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: var(--spacing-lg) var(--spacing-md);
         }
@@ -133,9 +133,81 @@
             line-height: 27px;
         }
 
-        .chart {
+        #worldMap {
             width: 100%;
-            min-height: 500px;
+            height: 600px;
+        }
+
+        #countryDetails {
+            background: var(--beige);
+            border: 2px solid var(--green-primary);
+            border-radius: 12px;
+            padding: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+            display: none;
+        }
+
+        #countryDetails.active {
+            display: block;
+        }
+
+        .detail-title {
+            font-size: 25px;
+            font-weight: 500;
+            color: var(--green-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .detail-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .detail-stat {
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 35px;
+            font-weight: 500;
+            color: var(--green-primary);
+            display: block;
+        }
+
+        .detail-label {
+            font-size: 15px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .legend-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 15px;
+            border-radius: 3px;
+        }
+
+        .legend-text {
+            font-size: 14px;
+            color: var(--gray);
         }
 
         footer {
@@ -159,14 +231,18 @@
             .chart-title {
                 font-size: 25px;
             }
+
+            #worldMap {
+                height: 400px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Capital Origin Geographic Distribution</h1>
-            <p>Investment sources by country across Zambia's ecosystem</p>
+            <h1>Global Capital Origin Heat Map</h1>
+            <p>Interactive world map showing investment sources by country</p>
         </header>
 
         <a href="index.html" class="back-link">
@@ -177,23 +253,51 @@
         </a>
 
         <div class="info-box">
-            <strong>Note:</strong> This visualization shows the geographic distribution of capital sources investing in Zambia's impact ecosystem. Countries are sized by total investment volume.
+            <strong>How to use:</strong> Hover over countries to see investment details. Click on a country to view detailed statistics. Darker green indicates higher investment volume.
         </div>
 
         <div class="chart-container">
             <div class="chart-header">
                 <h2 class="chart-title">Investment by Country of Origin</h2>
-                <p class="chart-subtitle">Total investment and deal count by investor country</p>
+                <p class="chart-subtitle">Hover to explore, click for details</p>
             </div>
-            <div id="countryChart" class="chart"></div>
+            <div id="worldMap"></div>
+            <div class="legend-container">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #E8F5E9;"></div>
+                    <span class="legend-text">Low Investment</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #61CE70;"></div>
+                    <span class="legend-text">Medium Investment</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #1A6B18;"></div>
+                    <span class="legend-text">High Investment</span>
+                </div>
+            </div>
         </div>
 
-        <div class="chart-container">
-            <div class="chart-header">
-                <h2 class="chart-title">Top Investing Countries</h2>
-                <p class="chart-subtitle">Ranked by total investment volume</p>
+        <div id="countryDetails">
+            <h3 class="detail-title" id="detailCountryName">Country Details</h3>
+            <div class="detail-stats">
+                <div class="detail-stat">
+                    <span class="detail-value" id="detailInvestment">$0M</span>
+                    <span class="detail-label">Total Investment</span>
+                </div>
+                <div class="detail-stat">
+                    <span class="detail-value" id="detailDeals">0</span>
+                    <span class="detail-label">Number of Deals</span>
+                </div>
+                <div class="detail-stat">
+                    <span class="detail-value" id="detailAverage">$0M</span>
+                    <span class="detail-label">Average Deal Size</span>
+                </div>
+                <div class="detail-stat">
+                    <span class="detail-value" id="detailShare">0%</span>
+                    <span class="detail-label">Share of Total</span>
+                </div>
             </div>
-            <div id="topCountriesChart" class="chart" style="min-height: 600px;"></div>
         </div>
 
         <footer>
@@ -202,250 +306,190 @@
     </div>
 
     <script>
-        // NABII Color Palette
+        // NABII Colors
         const colors = {
-            primary: ['#1A6B18', '#61CE70', '#2E7D32', '#81C784', '#1B5E20', '#4CAF50', '#66BB6A', '#388E3C'],
             green: '#1A6B18',
             greenSoft: '#61CE70',
+            greenLight: '#E8F5E9',
             navy: '#121C27',
             gray: '#4B535D',
             beige: '#ECE6E1'
         };
 
-        // Common chart options
-        const commonChartOptions = {
-            chart: {
-                fontFamily: 'Roboto, sans-serif',
-                foreColor: colors.navy,
-                toolbar: {
-                    show: true,
-                    tools: {
-                        download: true,
-                        selection: false,
-                        zoom: false,
-                        zoomin: false,
-                        zoomout: false,
-                        pan: false,
-                        reset: false
-                    }
-                }
-            },
-            colors: colors.primary,
-            grid: {
-                borderColor: colors.beige
-            },
-            xaxis: {
-                labels: {
-                    style: {
-                        colors: colors.gray,
-                        fontSize: '14px',
-                        fontFamily: 'Roboto, sans-serif',
-                        fontWeight: 500
-                    }
-                },
-                axisBorder: {
-                    color: colors.beige
-                }
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: colors.gray,
-                        fontSize: '14px',
-                        fontFamily: 'Roboto, sans-serif',
-                        fontWeight: 500
-                    }
-                }
-            },
-            legend: {
-                fontSize: '14px',
-                fontFamily: 'Roboto, sans-serif',
-                labels: {
-                    colors: colors.navy
-                }
-            },
-            tooltip: {
-                theme: 'light',
-                style: {
-                    fontSize: '14px',
-                    fontFamily: 'Roboto, sans-serif'
-                }
-            }
+        // ISO 3166-1 alpha-3 country codes mapping
+        const countryCodeMap = {
+            'Zambia': 'ZMB',
+            'United Kingdom': 'GBR',
+            'Switzerland': 'CHE',
+            'Netherlands': 'NLD',
+            'Canada': 'CAN',
+            'United States': 'USA',
+            'Côte d\'Ivoire': 'CIV',
+            'Sweden': 'SWE',
+            'Belgium': 'BEL',
+            'Germany': 'DEU',
+            'Luxembourg': 'LUX',
+            'Norway': 'NOR',
+            'Denmark': 'DNK',
+            'Mauritius': 'MUS',
+            'South Africa': 'ZAF',
+            'Finland': 'FIN',
+            'Nigeria': 'NGA',
+            'Kenya': 'KEN',
+            'Singapore': 'SGP',
+            'United Arab Emirates': 'ARE',
+            'Italy': 'ITA',
+            'Tunisia': 'TUN'
         };
+
+        let countryData = [];
+        let totalGlobalInvestment = 0;
 
         // Load country data
         async function loadData() {
             try {
                 const response = await fetch('data/country_data.json');
-                const countryData = await response.json();
-                renderCharts(countryData);
+                countryData = await response.json();
+                totalGlobalInvestment = countryData.reduce((sum, c) => sum + c.total_investment, 0);
+                renderWorldMap();
             } catch (error) {
                 console.error('Error loading data:', error);
                 alert('Error loading country data. Please ensure country_data.json exists in the data/ folder.');
             }
         }
 
-        function renderCharts(countryData) {
-            renderCountryDonut(countryData);
-            renderTopCountriesBar(countryData);
-        }
+        function renderWorldMap() {
+            // Prepare data for choropleth map
+            const locations = [];
+            const values = [];
+            const texts = [];
+            const customdata = [];
 
-        function renderCountryDonut(countryData) {
-            const series = countryData.map(c => c.total_investment);
-            const labels = countryData.map(c => c.country);
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'donut',
-                    height: 500
-                },
-                series: series,
-                labels: labels,
-                plotOptions: {
-                    pie: {
-                        donut: {
-                            size: '65%',
-                            labels: {
-                                show: true,
-                                name: {
-                                    show: true,
-                                    fontSize: '16px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 600,
-                                    color: colors.navy
-                                },
-                                value: {
-                                    show: true,
-                                    fontSize: '24px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 500,
-                                    color: colors.green,
-                                    formatter: function (val) {
-                                        return '$' + Math.round(parseFloat(val)) + 'M'
-                                    }
-                                },
-                                total: {
-                                    show: true,
-                                    label: 'Total Investment',
-                                    fontSize: '15px',
-                                    fontFamily: 'Roboto, sans-serif',
-                                    fontWeight: 600,
-                                    color: colors.navy,
-                                    formatter: function (w) {
-                                        const total = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                                        return '$' + Math.round(total) + 'M'
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                legend: {
-                    ...commonChartOptions.legend,
-                    position: 'bottom',
-                    horizontalAlign: 'center'
-                },
-                tooltip: {
-                    ...commonChartOptions.tooltip,
-                    y: {
-                        formatter: function(val, opts) {
-                            const dealCount = countryData[opts.seriesIndex].deal_count;
-                            return '$' + Math.round(val) + 'M (' + dealCount + ' deals)';
-                        }
-                    }
+            countryData.forEach(country => {
+                const code = countryCodeMap[country.country];
+                if (code) {
+                    locations.push(code);
+                    values.push(country.total_investment);
+                    texts.push(country.country);
+                    customdata.push({
+                        country: country.country,
+                        investment: country.total_investment,
+                        deals: country.deal_count,
+                        average: country.total_investment / country.deal_count,
+                        share: (country.total_investment / totalGlobalInvestment * 100)
+                    });
                 }
-            };
+            });
 
-            const chart = new ApexCharts(document.querySelector("#countryChart"), options);
-            chart.render();
-        }
-
-        function renderTopCountriesBar(countryData) {
-            // Get top 15 countries
-            const top15 = countryData.slice(0, 15);
-            const categories = top15.map(c => c.country);
-            const values = top15.map(c => c.total_investment);
-            const dealCounts = top15.map(c => c.deal_count);
-
-            const options = {
-                ...commonChartOptions,
-                chart: {
-                    ...commonChartOptions.chart,
-                    type: 'bar',
-                    height: 600
-                },
-                series: [{
-                    name: 'Investment',
-                    data: values
-                }],
-                xaxis: {
-                    ...commonChartOptions.xaxis,
-                    categories: categories,
-                    labels: {
-                        ...commonChartOptions.xaxis.labels,
-                        style: {
-                            ...commonChartOptions.xaxis.labels.style,
-                            fontSize: '13px'
-                        }
+            const data = [{
+                type: 'choropleth',
+                locations: locations,
+                z: values,
+                text: texts,
+                customdata: customdata,
+                colorscale: [
+                    [0, colors.greenLight],
+                    [0.5, colors.greenSoft],
+                    [1, colors.green]
+                ],
+                autocolorscale: false,
+                reversescale: false,
+                marker: {
+                    line: {
+                        color: colors.beige,
+                        width: 1
                     }
                 },
-                yaxis: {
-                    ...commonChartOptions.yaxis,
+                colorbar: {
                     title: {
-                        text: 'Total Investment (USD Millions)',
-                        style: {
-                            color: colors.navy,
-                            fontSize: '15px',
-                            fontWeight: 600
+                        text: 'Investment<br>(USD M)',
+                        font: {
+                            family: 'Roboto, sans-serif',
+                            size: 14,
+                            color: colors.navy
                         }
                     },
-                    labels: {
-                        ...commonChartOptions.yaxis.labels,
-                        formatter: function(val) {
-                            return Math.round(val);
-                        }
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: true,
-                        borderRadius: 6,
-                        distributed: true,
-                        dataLabels: {
-                            position: 'top'
-                        }
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                    formatter: function (val) {
-                        return '$' + Math.round(val) + 'M';
+                    tickfont: {
+                        family: 'Roboto, sans-serif',
+                        size: 12,
+                        color: colors.navy
                     },
-                    offsetX: 30,
-                    style: {
-                        fontSize: '13px',
-                        fontWeight: 600,
-                        colors: [colors.navy]
-                    }
+                    tickformat: '$,.0f',
+                    thickness: 20,
+                    len: 0.7,
+                    x: 1.02
                 },
-                legend: {
-                    show: false
+                hovertemplate: '<b>%{text}</b><br>' +
+                              'Investment: $%{z:.0f}M<br>' +
+                              'Deals: %{customdata.deals}<br>' +
+                              'Avg Deal: $%{customdata.average:.1f}M<br>' +
+                              '<extra></extra>'
+            }];
+
+            const layout = {
+                geo: {
+                    projection: {
+                        type: 'natural earth'
+                    },
+                    showframe: false,
+                    showcoastlines: true,
+                    coastlinecolor: colors.gray,
+                    showland: true,
+                    landcolor: '#f5f5f5',
+                    showcountries: true,
+                    countrycolor: colors.beige,
+                    countrywidth: 0.5,
+                    bgcolor: colors.white,
+                    oceancolor: '#e3f2fd'
                 },
-                tooltip: {
-                    ...commonChartOptions.tooltip,
-                    y: {
-                        formatter: function(val, opts) {
-                            const dealCount = dealCounts[opts.dataPointIndex];
-                            return '$' + Math.round(val) + 'M (' + dealCount + ' deals)';
-                        }
+                paper_bgcolor: colors.white,
+                height: 600,
+                margin: { t: 0, b: 0, l: 0, r: 0 },
+                font: {
+                    family: 'Roboto, sans-serif',
+                    color: colors.navy
+                },
+                hoverlabel: {
+                    bgcolor: colors.white,
+                    bordercolor: colors.green,
+                    font: {
+                        family: 'Roboto, sans-serif',
+                        size: 14,
+                        color: colors.navy
                     }
                 }
             };
 
-            const chart = new ApexCharts(document.querySelector("#topCountriesChart"), options);
-            chart.render();
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                displaylogo: false,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d', 'pan2d', 'zoomIn2d', 'zoomOut2d', 'autoScale2d']
+            };
+
+            const mapDiv = document.getElementById('worldMap');
+            Plotly.newPlot(mapDiv, data, layout, config);
+
+            // Add click event
+            mapDiv.on('plotly_click', function(data) {
+                const point = data.points[0];
+                showCountryDetails(point.customdata);
+            });
+        }
+
+        function showCountryDetails(data) {
+            const detailsDiv = document.getElementById('countryDetails');
+
+            document.getElementById('detailCountryName').textContent = data.country;
+            document.getElementById('detailInvestment').textContent = '$' + Math.round(data.investment) + 'M';
+            document.getElementById('detailDeals').textContent = data.deals;
+            document.getElementById('detailAverage').textContent = '$' + data.average.toFixed(1) + 'M';
+            document.getElementById('detailShare').textContent = data.share.toFixed(1) + '%';
+
+            detailsDiv.classList.add('active');
+
+            // Smooth scroll to details
+            detailsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         // Initialize
